@@ -39,7 +39,7 @@ app.put('/teas/:id', (req, res) => {
     res.status(200).send(tea)
 })
 //delete tea
-app.put('/teas/:id', (req, res) => {
+app.delete('/teas/:id', (req, res) => {
     teaData.findIndex(tea => tea.id === parseInt(req.params.id))
     if (index === -1) {
         return res.status(404).send('tea not found')
