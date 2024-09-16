@@ -27,6 +27,27 @@ app.get('/teas/:id', (req, res) => {
     }
     res.status(200).send(tea)
 })
+//update tea
+app.put('/teas/:id', (req, res) => {
+    const tea = teaData.find(i => i.id === parseInt(req.params.id))
+    if (!tea) {
+        return res.status(404).send("Tea is not found")
+    }
+    const { name, price } = req.body;
+    tea.name = name;
+    tea.price = price;
+    res.status(200).send(tea)
+})
+//delete tea
+app.put('/teas/:id', (req, res) => {
+    teaData.findIndex(tea => tea.id === parseInt(req.params.id))
+    if (index === -1) {
+        return res.status(404).send('tea not found')
+    }
+    teaData.splice(index, 1)
+    return res.status(204).send('Tea deleted successfully')
+})
+
 
 app.listen(port, () => {
     console.log(`Server is running successfully in port: ${port}`)
