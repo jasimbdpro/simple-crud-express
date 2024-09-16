@@ -15,6 +15,10 @@ app.post('/teas', (req, res) => {
     res.status(201).send(newTea)
 })
 
+
+app.get('/', (req, res) => {
+    res.status(200).send("Use this route for all crud operation: /teas")
+})
 //get all tea
 app.get('/teas', (req, res) => {
     res.status(200).send(teaData)
